@@ -19,4 +19,31 @@ class User < ActiveRecord::Base
 			:timeoflasttweet => user.status.created_at,
 		})
 	end
+
+	def self.get_first_tweet
+	
+		username = 'marydbegley'
+		user_created_at = DateTime.new(2005,7,11)
+	
+		timeline = Twitter.user_timeline(username, :count => 200)
+		
+		id = timeline.last.id
+		time = timeline.last.created_at	
+		
+		while time > user_created_at do
+			
+			timeline = Twitter.user_timeline(username, :count => 200, :max_id => id)
+			id = timeline.last.id
+			time = timeline.last.created_at
+			puts id
+			puts time
+			puts timeline.last.text
+		
+		end
+		
+		puts id
+		puts time
+	
+	end
+
 end
