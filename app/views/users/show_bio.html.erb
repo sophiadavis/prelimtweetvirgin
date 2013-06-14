@@ -1,6 +1,6 @@
 <h1>A brief Twitter biography of <%= params[:username] %></h1>
 </br> </br>
-<img src="<%=@user.profile_link%>">
+<img src="<%=@user.profile_link%>" width="100" height="100" >
 </br> </br>
 <%=@user.username%> joined Twitter on 
 <%=@user.created_at%>, and their very first tweet was "<%=@user.first_tweet%>."</br></br>
