@@ -1,16 +1,13 @@
-<h1>Your Twitter biography</h1>
- </br> </br>
-  </br> </br>
-<%=params[:username]%>
- </br> </br>
-  </br> </br>
+<h1>A brief Twitter biography of <%= params[:username] %></h1>
+</br> </br>
+<img src="<%=@user.profile_link%>">
+</br> </br>
 <%=@user.username%> joined Twitter on 
+<%=@user.created_at%>, and their very first tweet was "<%=@user.first_tweet%>."</br></br>
+Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
+<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> followers, 
+and their latest tweet was "<%=@user.latest_tweet%>."
 
-<%=@user.created_at%>, and their very first tweet was <%=@user.first_tweet%>. Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
-<%=@user.num_friends%> other users. Today, they have <%=@user.num_followers%> followers, and their latest tweet was <%=@user.latest_tweet%>.
-</br> </br>
-</br> </br>
-Here is a link to their profile: <%=@user.profile_link%>
 
 
 
