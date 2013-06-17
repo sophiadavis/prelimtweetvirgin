@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	#A method to grab user info from Twitter
 	def self.get_user_info username
 		
-		begin
+		#begin
 		user = Twitter.user(username)
 		
 		User.create!({
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 			:username => username,
 			:timeoflasttweet => user.status.created_at,
 		})
-			puts 'done!'
+			#puts 'done!'
 		#rescue
 		#	puts "That user does not exist."
 		#end

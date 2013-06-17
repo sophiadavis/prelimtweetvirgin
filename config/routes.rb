@@ -3,6 +3,8 @@ Tweetvirgin1::Application.routes.draw do
 
   get "home/index"
   
+  get "users/user_not_found"
+  
   resources :users
 
   # The priority is based upon order of creation:
