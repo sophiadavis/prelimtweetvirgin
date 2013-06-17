@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
 		User.create!({
 			:created_at => user.created_at,
-			:first_tweet => " 'Still figuring out how to get this.' ~Sophia ",
+			:first_tweet => User.get_first_tweet(user),
 			:latest_tweet => user.status.text,
 			:num_followers => user.followers_count,
 			:num_friends => user.friends_count,
@@ -20,29 +20,25 @@ class User < ActiveRecord::Base
 		})
 	end
 
-	def self.get_first_tweet
-	
-		username = 'marydbegley'
-		user_created_at = DateTime.new(2005,7,11)
+	# return the 'first tweet' (3,200 back) of a user
+	def self.get_first_tweet username
 	
 		timeline = Twitter.user_timeline(username, :count => 200)
 		
 		id = timeline.last.id
-		time = timeline.last.created_at	
+		id_checker = 0
 		
-		while time > user_created_at do
+		while id_checker != id do
 			
 			timeline = Twitter.user_timeline(username, :count => 200, :max_id => id)
+			id_checker = id
 			id = timeline.last.id
-			time = timeline.last.created_at
-			puts id
-			puts time
-			puts timeline.last.text
 		
 		end
 		
-		puts id
-		puts time
+		#puts id
+		#puts timeline.last.created_at
+		return timeline.last.text
 	
 	end
 
