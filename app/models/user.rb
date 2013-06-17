@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	attr_accessible :created_at, :first_tweet, :latest_tweet, :num_followers, :num_friends, :num_tweets, :profile_link, :user_id, :username, :timeoflasttweet
+	attr_accessible :created_at, :first_tweet, :latest_tweet, :num_followers, :num_friends, :num_tweets, :profile_link, :user_id, :username, :timeoflasttweet, :over3200
 
 	#A method to grab user info from Twitter
 	def self.get_user_info username
@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 			:user_id => user.id,
 			:username => username,
 			:timeoflasttweet => user.status.created_at,
+			:over3200 => true,
 		})
 			#puts 'done!'
 		#rescue

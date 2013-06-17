@@ -1,5 +1,7 @@
 Tweetvirgin1::Application.routes.draw do
-  get "users/show_bio"
+  get "users/under3200_show_bio"
+  
+  get "users/over3200_show_bio"
 
   get "home/index"
   
