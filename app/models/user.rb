@@ -36,8 +36,8 @@ class User < ActiveRecord::Base
 		
 		end
 		
-		#puts id
-		#puts timeline.last.created_at
+		# puts id
+		# puts timeline.last.created_at
 		return timeline.last.text
 	
 	end
