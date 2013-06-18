@@ -63,7 +63,7 @@ module Tweetvirgin1
     config.assets.initialize_on_precompile = false  
     
     # http://blog.dynamic50.com/2011/02/22/redirect-all-requests-for-www-to-root-domain-with-heroku/
-    config.autoload_paths += %W( #{ config.root }/lib/middleware )
+    # config.autoload_paths += %W( #{ config.root }/lib/middleware )
     
   end
 end
