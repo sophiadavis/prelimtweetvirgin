@@ -64,6 +64,6 @@ module Tweetvirgin1
     
     # http://blog.dynamic50.com/2011/02/22/redirect-all-requests-for-www-to-root-domain-with-heroku/
     config.autoload_paths += %W( #{ config.root }/lib/middleware )
-    config.middleware.use "WwwMiddleware"
+    #config.middleware.use "WwwMiddleware"
   end
 end
