@@ -1,6 +1,7 @@
 class WwwMiddleware
 	
 	def initialize(app)
+		#logger.info("initialized")
 		@app = app
 	end
 
@@ -16,7 +17,7 @@ class WwwMiddleware
 		#[200, {"Content-Type" => "text/html"}, "Hello, World!"]
 =end
 		request = Rack::Request.new(env)
-	
+		logger.info request.inspect
 		if request.host.starts_with?("*.com")
 			[301, {"Location" => request.url.sub("//*.", "//www.*.com")}, self]
 

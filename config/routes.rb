@@ -1,9 +1,10 @@
 Tweetvirgin1::Application.routes.draw do
-  get "users/show"
+	
+	get "users/show"
 
-  get "home/index"
+	get "home/index"
 
-  resources :users
+	resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

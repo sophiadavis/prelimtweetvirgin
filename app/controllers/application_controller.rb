@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 	
-	before_filter :check_uri
-
+#	before_filter :check_uri
+=begin
 	def check_uri
-		redirect_to request.protocol + "www." + request.host_with_port + request.fullpath if !/^www/.match(request.host) if Rails.env ==	'production'
+		redirect_to request.protocol + "www." + request.host_with_port + request.fullpath if !/^www/.match(request.host) if Rails.env =='production'
 	end
-
+=end
 	
 	
 	#redirect_to "http://www.tweetvirgin.com"
@@ -41,18 +41,18 @@ before_filter :force_www!
 		redirect_to request.protocol + "www." + request.host_with_port + request.request_uri if !/^www/.match(request.host) if Rails.env == 'production'
 	
 	end
-
+=end
 	before_filter :ensure_domain
 	
 	def ensure_domain
 		canonical_domain = 'www.tweetvirgin.com'
 		#debugger
-		#logger.info request.inspect
+		logger.info request.inspect
 		if request.host != canonical_domain && ENV["RAILS_ENV"] == 'production'
 			redirect_to request.protocol + canonical_domain + request.fullpath
 		end
 	end
-=end
+
 end
 # request_uri
 # request_url
