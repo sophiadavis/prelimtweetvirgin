@@ -32,7 +32,7 @@ before_filter :force_www!
 		redirect_to request.protocol + "www." + request.host_with_port + request.request_uri if !/^www/.match(request.host) if Rails.env == 'production'
 	
 	end
-=end
+
 	before_filter :ensure_domain
 	
 	def ensure_domain
@@ -43,7 +43,7 @@ before_filter :force_www!
 			redirect_to request.protocol + canonical_domain + request.fullpath
 		end
 	end
-
+=end
 end
 # request_uri
 # request_url
