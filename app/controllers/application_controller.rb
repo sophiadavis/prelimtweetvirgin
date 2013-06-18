@@ -33,3 +33,7 @@ end
 # request_uri
 # request_url
 # request.fullpath
+
+
+#</br> </br>
+#<%= request.inspect %>

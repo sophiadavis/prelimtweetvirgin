@@ -1,7 +1,7 @@
 <%= form_tag("/users/show_bio", :method => "get") do %>
-  <%= label_tag(:username, "Enter your Twitter username:") %>
+  <%= label_tag(:username, "Enter a Twitter username:") %>
   <%= text_field_tag(:username) %>
   <%= submit_tag("Enter") %>
 <% end %>
 
-<%= request.inspect %>
+<!--%= request.inspect %>-->

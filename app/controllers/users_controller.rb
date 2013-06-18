@@ -3,8 +3,15 @@ class UsersController < ApplicationController
 	before_filter :get_user, :only => [:show]
 	
 	def get_user
+		begin
+			@user = User.get_user_info params[:username]
+		rescue
+			@user = nil
+			#flash[:notice] = "That is not a valid username."
+			#redirect_to root_url, :alert => "That is not a valid username."
+			return
+		end
 		
-		@user = User.get_user_info params[:username]
 		count = @user.num_tweets
 		
 		if count > 3200

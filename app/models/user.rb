@@ -4,12 +4,38 @@ class User < ActiveRecord::Base
 	#A method to grab user info from Twitter
 	def self.get_user_info username
 		
-		#begin
 		user = Twitter.user(username)
 		
+=begin		begin
+		logger.info ""
+		logger.info "inside begin"
+		logger.info ""
+		
+		logger.info ""
+		logger.info "made user!"
+		logger.info ""
+		rescue
+			logger.info ""
+			logger.info "inside rescue"
+			logger.info ""
+			User.create!({
+				:created_at => user.created_at,
+				:first_tweet => 'blah',#User.get_first_tweet(user),
+				:latest_tweet => user.status.text,
+				:num_followers => user.followers_count,
+				:num_friends => user.friends_count,
+				:num_tweets => user.statuses_count,
+				:profile_link => user.profile_image_url_https( size = :bigger ),
+				:user_id => user.id,
+				:username => username,
+				:timeoflasttweet => user.status.created_at,
+				:over3200 => true,
+			})
+		end
+=end		
 		User.create!({
 			:created_at => user.created_at,
-			:first_tweet => User.get_first_tweet(user),
+			:first_tweet => 'blah',#User.get_first_tweet(user),
 			:latest_tweet => user.status.text,
 			:num_followers => user.followers_count,
 			:num_friends => user.friends_count,
@@ -20,10 +46,6 @@ class User < ActiveRecord::Base
 			:timeoflasttweet => user.status.created_at,
 			:over3200 => true,
 		})
-			#puts 'done!'
-		#rescue
-		#	puts "That user does not exist."
-		#end
 		
 	end
 

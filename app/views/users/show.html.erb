@@ -1,10 +1,7 @@
-<h1><%= params[:username] %></h1>
-
-</br> </br>
-<%= request.inspect %>
-</br></br>
 <% if @user %>
 
+<h1><%= params[:username] %></h1>
+</br>
 <img src="<%=@user.profile_link%>" width="120" height="120" >
 
 	<% if @user.over3200 == true%>
@@ -33,8 +30,17 @@
 	followers, and their latest tweet was "<%=@user.latest_tweet%>" at <%=@user.timeoflasttweet%>.
 
 	<% end %>
+	
+	<%=link_to "Enter new username.", "/"%>
 
 <% else %>
-User not found.
-
+	"<%=params[:username]%>" does not appear to have lost their Twitter virginity yet.
+	</br>
+	</br>
+	<%= form_tag("/users/show_bio", :method => "get") do %>
+	  Please <%= label_tag(:username, "enter new Twitter username:") %>
+	  <%= text_field_tag(:username) %>
+	  <%= submit_tag("Enter") %>
+	<% end %>
 <% end %>
+</br>
