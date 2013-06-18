@@ -18,11 +18,11 @@ class UsersController < ApplicationController
 	
 	def show
 	
-		if @user.over3200 == true
-			render :over3200_show_bio
-		else
-			render :under3200_show_bio
-		end
+		#if @user.over3200 == true
+			render :show
+		#else
+		#	render :under3200_show_bio
+
 	end
 end
 

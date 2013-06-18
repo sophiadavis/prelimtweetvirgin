@@ -15,3 +15,5 @@ gem 'heroku'
 gem 'uglifier'
 
 gem 'taps'
+
+gem 'debugger'
