@@ -34,4 +34,8 @@ Tweetvirgin1::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  # from http://blog.dynamic50.com/2011/02/22/redirect-all-requests-for-www-to-root-domain-with-heroku/
+  config.middleware.use "WwwMiddleware"
+  
 end
