@@ -17,3 +17,5 @@ gem 'uglifier'
 gem 'taps'
 
 gem 'debugger'
+
+gem 'rack-rewrite'
