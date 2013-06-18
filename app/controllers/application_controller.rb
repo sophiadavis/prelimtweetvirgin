@@ -26,9 +26,10 @@ class ApplicationController < ActionController::Base
 		#debugger
 		#logger.info request.inspect
 		if request.host != canonical_domain && ENV["RAILS_ENV"] == 'production'
-			redirect_to request.protocol + canonical_domain + request.fullpath
+			redirect_to request.protocol + canonical_domain + request.path
 		end
 	end
 end
 # request_uri
 # request_url
+# request.fullpath
