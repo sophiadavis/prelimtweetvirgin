@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
-
+	redirect_to "http://www.tweetvirgin.com"
 =begin
 before_filter :force_www!
 	
