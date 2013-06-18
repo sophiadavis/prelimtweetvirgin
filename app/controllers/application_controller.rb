@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 
+=begin
 before_filter :force_www!
 	
 	protected
@@ -10,7 +11,7 @@ before_filter :force_www!
 			redirect_to request.protocol + 'www.tweetvirgin.com' + request.fullpath, :status => 301
 		end
 	end
-
+=end
 
 =begin
 	before_filter :ensure_domain

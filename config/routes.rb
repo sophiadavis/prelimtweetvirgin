@@ -1,12 +1,8 @@
 Tweetvirgin1::Application.routes.draw do
-  get "users/under3200_show_bio"
-  
-  get "users/over3200_show_bio"
+  get "users/show"
 
   get "home/index"
-  
-  get "users/user_not_found"
-  
+
   resources :users
 
   # The priority is based upon order of creation:

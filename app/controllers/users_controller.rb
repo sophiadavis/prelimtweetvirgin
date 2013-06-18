@@ -7,8 +7,6 @@ class UsersController < ApplicationController
 			@user = User.get_user_info params[:username]
 		rescue
 			@user = nil
-			#flash[:notice] = "That is not a valid username."
-			#redirect_to root_url, :alert => "That is not a valid username."
 			return
 		end
 		
@@ -24,37 +22,6 @@ class UsersController < ApplicationController
 	end
 	
 	def show
-	
-		#if @user.over3200 == true
-			render :show
-		#else
-		#	render :under3200_show_bio
-
+		render :show
 	end
 end
-
-	#def user_not_found
-	#
-	#end
-
-
-
-
-
-
-
-
-
-
-
-=begin   # original code
-	def show_bio
-	@user = User.get_user_info params[:username]
-	end
-
-	#def user_not_found
-	#
-	#end
-
-	end
-=end

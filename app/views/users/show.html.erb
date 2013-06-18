@@ -1,46 +1,53 @@
 <% if @user %>
 
-<h1><%= params[:username] %></h1>
-</br>
-<img src="<%=@user.profile_link%>" width="120" height="120" >
-
+	<h1><%= params[:username] %></h1>
+	</br>
+	<img src="<%=@user.profile_link%>" width="120" height="120" >
+	</br></br>
 	<% if @user.over3200 == true%>
 
-	</br> </br>
+		Woah! Since they lost their Twitter virginity on <%=@user.created_at%>, <%=@user.username%> 
+		has tweeted <%=@user.num_tweets%> times! It's pretty 
+		hard to figure out what the first tweet was for a Twitter user who's that active...
 
-	Woah! Since they lost their Twitter virginity on <%=@user.created_at%>, <%=@user.username%> 
-	has tweeted <%=@user.num_tweets%> times! It's pretty 
-	hard to figure out what the first tweet was for a Twitter user who's that active...
+		</br></br>
 
-	</br></br>
-
-	Today, <%=@user.username%> has <%=@user.num_followers%> followers, has followed
-	<%=@user.num_friends%> other users and their latest tweet was "<%=@user.latest_tweet%>" 
-	at <%=@user.timeoflasttweet%>.
+		Today, <%=@user.username%> has <%=@user.num_followers%> followers, has followed
+		<%=@user.num_friends%> other users and their latest tweet was "<%=@user.latest_tweet%>" 
+		at <%=@user.timeoflasttweet%>.
 
 	<% else %>
 
-	<%=@user.username%> lost their Twitter virginity on <%=@user.created_at%> and their very 
-	first tweet was "<%=@user.first_tweet%>."
+		<%=@user.username%> lost their Twitter virginity on <%=@user.created_at%> and their very 
+		first tweet was "<%=@user.first_tweet%>."
 
-	</br></br>
+		</br></br>
 
-	Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
-	<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
-	followers, and their latest tweet was "<%=@user.latest_tweet%>" at <%=@user.timeoflasttweet%>.
+		Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
+		<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
+		followers, and their latest tweet was "<%=@user.latest_tweet%>" at <%=@user.timeoflasttweet%>.
 
 	<% end %>
 	
-	<%=link_to "Enter new username.", "/"%>
+</br></br>
+<%= form_tag("/users/show", :method => "get") do %>
+  Please <%= label_tag(:username, "enter new Twitter username:") %>
+  <%= text_field_tag(:username) %>
+  <%= submit_tag("Enter") %>
+  
+<% end %>
 
 <% else %>
+
 	"<%=params[:username]%>" does not appear to have lost their Twitter virginity yet.
 	</br>
 	</br>
-	<%= form_tag("/users/show_bio", :method => "get") do %>
+	<%= form_tag("/users/show", :method => "get") do %>
 	  Please <%= label_tag(:username, "enter new Twitter username:") %>
 	  <%= text_field_tag(:username) %>
 	  <%= submit_tag("Enter") %>
+	  
 	<% end %>
+	
 <% end %>
 </br>
