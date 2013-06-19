@@ -22,11 +22,26 @@
 		first tweet was "<%=@user.first_tweet%>."
 
 		</br></br>
+		
+		<% if @user.num_tweets > 1 %>
 
-		Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
-		<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
-		followers, and their latest tweet was "<%=@user.latest_tweet%>" <%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
-
+			Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
+			<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
+			followers, and their latest tweet was "<%=@user.latest_tweet%>" <%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
+		
+		<% elsif @user.num_tweets == 1  %>
+		
+			Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> time and has followed
+			<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
+			followers, and their latest tweet was "<%=@user.latest_tweet%>" <%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
+		
+		<% else %>
+		
+			Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
+			<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
+			followers. Get tweeting!
+		
+		<% end %>
 	<% end %>
 	
 </br></br>
