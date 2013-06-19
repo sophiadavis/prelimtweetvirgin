@@ -14,8 +14,8 @@
 
 	</br></br>
 
-	Today, <%=@user.username%> has <%=@user.num_followers%> followers, has followed
-	<%=@user.num_friends%> other users and their latest tweet was "<%=@user.latest_tweet%>" 
+	Today, <%=@user.username%> has <%=@user.num_followers%> <%if @user.num_followers != 1%>followers<%else%>follower<%end%>, has followed
+	<%=@user.num_friends%> other <%if @user.num_friends != 1%>users<%else%>user<%end%> and their latest tweet was "<%=@user.latest_tweet%>" 
 	<%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
 
 <% else %>
@@ -29,21 +29,20 @@
 	<% if @user.num_tweets > 1 %>
 
 		Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
-		<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
-		followers, and their latest tweet was "<%=@user.latest_tweet%>" <%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
+		<%=@user.num_friends%> other <%if @user.num_friends != 1%>users<%else%>user<%end%>. Today, <%=@user.username%> has <%=@user.num_followers%> <%if @user.num_followers != 1%>followers<%else%>follower<%end%>, and their latest tweet was "<%=@user.latest_tweet%>" 
+		<%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
 	
 	<% elsif @user.num_tweets == 1  %>
 	
-		Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> time and has followed
-		<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
-		followers, and their latest tweet was "<%=@user.latest_tweet%>" <%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
+		Today, <%=@user.username%> has <%=@user.num_followers%> <%if @user.num_followers != 1%>followers<%else%>follower<%end%> and has followed 
+		<%=@user.num_friends%> other <%if @user.num_friends != 1%>users<%else%>user<%end%>. Their only tweet was "<%=@user.latest_tweet%>" 
+		<%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
 	
-	<!--for user with 0 tweets-->
-	<% else %>
+	<% else %> <!--for user with 0 tweets-->
 	
-		Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
-		<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
-		followers. Get tweeting!
+		Today, <%=@user.username%> has <%=@user.num_followers%> <%if @user.num_followers != 1%>followers<%else%>follower<%end%>, has followed 
+		<%=@user.num_friends%> other <%if @user.num_friends != 1%>users<%else%>user<%end%>, and has tweeted a grand total of 0 times!
+		Get tweeting!
 	
 	<% end %>
 <% end %>
