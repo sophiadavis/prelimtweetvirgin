@@ -1,0 +1,10 @@
+<!--if user doesn't exist-->
+
+"<%=params[:username]%>" does not appear to have lost their Twitter virginity yet.
+</br>
+</br>
+<%= form_tag("/users/show", :method => "get") do %>
+	Please <%= label_tag(:username, "enter new Twitter username:") %>
+	<%= text_field_tag(:username) %>
+	<%= submit_tag("Enter") %>
+<% end %>

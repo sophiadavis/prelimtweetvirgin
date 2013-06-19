@@ -1,6 +1,17 @@
 class User < ActiveRecord::Base
 	attr_accessible :created_at, :first_tweet, :latest_tweet, :num_followers, :num_friends, :num_tweets, :profile_link, :user_id, :username, :timeoflasttweet, :over3200
 
+def check_supplier_exists
+  @supplier = Supplier.find(self.supplier_id)
+  if @supplier != nil
+    return true
+  else 
+    return false
+  end
+end
+
+
+	
 	#A method to grab user info from Twitter
 	def self.get_user_info username
 		

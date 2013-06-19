@@ -22,6 +22,12 @@ class UsersController < ApplicationController
 	end
 	
 	def show
-		render :show
+		if params[:username].strip == ""
+			render :incomplete
+		elsif @user
+			render :show
+		else
+			render :user_not_found
+		end
 	end
 end
