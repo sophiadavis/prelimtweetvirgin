@@ -19,3 +19,5 @@ gem 'taps'
 gem 'debugger'
 
 gem 'rack-rewrite'
+
+gem 'dotiw', '~> 1.1.1'

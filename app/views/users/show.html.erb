@@ -6,7 +6,7 @@
 	</br></br>
 	<% if @user.over3200 == true%>
 
-		Woah! Since they lost their Twitter virginity on <%=@user.created_at%>, <%=@user.username%> 
+		Woah! Since they lost their Twitter virginity <%=distance_of_time_in_words(@user.created_at, DateTime.now, true)%> ago, <%=@user.username%> 
 		has tweeted <%=@user.num_tweets%> times! It's pretty 
 		hard to figure out what the first tweet was for a Twitter user who's that active...
 
@@ -14,18 +14,18 @@
 
 		Today, <%=@user.username%> has <%=@user.num_followers%> followers, has followed
 		<%=@user.num_friends%> other users and their latest tweet was "<%=@user.latest_tweet%>" 
-		at <%=@user.timeoflasttweet%>.
+		<%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
 
 	<% else %>
 
-		<%=@user.username%> lost their Twitter virginity on <%=@user.created_at%> and their very 
+		<%=@user.username%> lost their Twitter virginity <%=distance_of_time_in_words(@user.created_at, DateTime.now, true)%> ago and their very 
 		first tweet was "<%=@user.first_tweet%>."
 
 		</br></br>
 
 		Since then, <%=@user.username%> has tweeted <%=@user.num_tweets%> times and has followed
 		<%=@user.num_friends%> other users. Today, <%=@user.username%> has <%=@user.num_followers%> 
-		followers, and their latest tweet was "<%=@user.latest_tweet%>" at <%=@user.timeoflasttweet%>.
+		followers, and their latest tweet was "<%=@user.latest_tweet%>" <%=@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")%>.
 
 	<% end %>
 	
@@ -51,4 +51,3 @@
 	<% end %>
 	
 <% end %>
-</br>

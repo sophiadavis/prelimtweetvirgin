@@ -43,5 +43,19 @@ class User < ActiveRecord::Base
 		return timeline.last.text
 	
 	end
-
+	
+	def self.get_tweet_score
+	
+		tweet_score = 0
+	
+		# parse through last 200 tweets
+		#timeline = Twitter.user_timeline(username, :count => 100)
+		#id = timeline.last.id
+		
+		# parse through last 500 tweets
+		for i in 0..4
+			timeline = Twitter.user_timeline(username, :count => 200, :max_id => id)
+			id = timeline.last.id
+		end
+	end
 end

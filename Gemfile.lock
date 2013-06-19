@@ -38,6 +38,8 @@ GEM
       debugger-ruby_core_source (~> 1.2.1)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.2)
+    dotiw (1.1.1)
+      actionpack (~> 3)
     erubis (2.7.0)
     excon (0.23.0)
     execjs (1.4.0)
@@ -140,6 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   debugger
+  dotiw (~> 1.1.1)
   heroku
   omniauth
   omniauth-twitter

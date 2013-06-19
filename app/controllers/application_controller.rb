@@ -42,12 +42,13 @@ before_filter :force_www!
 	
 	end
 
+# from Joe
 	before_filter :ensure_domain
 	
 	def ensure_domain
 		canonical_domain = 'www.tweetvirgin.com'
 		#debugger
-		logger.info request.inspect
+		#logger.info request.inspect
 		if request.host != canonical_domain && ENV["RAILS_ENV"] == 'production'
 			redirect_to request.protocol + canonical_domain + request.fullpath
 		end
