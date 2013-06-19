@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 	
 	def show
 		if params[:username].strip == ""
+			#render :js => "alert('hello')"  # why didn't this work?s
 			render :incomplete
 		elsif @user
 			render :show

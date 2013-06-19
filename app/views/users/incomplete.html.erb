@@ -3,8 +3,4 @@
 That would be a boring username.
 </br>
 </br>
-<%= form_tag("/users/show", :method => "get") do %>
-	Please <%= label_tag(:username, "enter new Twitter username:") %>
-	<%= text_field_tag(:username) %>
-	<%= submit_tag("Enter") %>
-<% end %>
+<%= render "request" %>
