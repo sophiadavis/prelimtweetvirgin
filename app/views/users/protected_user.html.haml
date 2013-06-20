@@ -20,9 +20,10 @@
 		-if @user.num_friends != 1
 			users,
 		-else
-			user,
-		and their latest tweet was "#{@user.latest_tweet}" #{@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")}.
-
+			user.
+		#{@user.username} has set their Twitter account to be private, 
+		so TweetVirgin can't access any of their tweets.
+		
 	-elsif @user.num_tweets == 0
 		#{@user.username} lost their Twitter virginity #{distance_of_time_in_words(@user.created_at, DateTime.now, true)} ago.
 		%br
@@ -44,7 +45,7 @@
 		
 	-else
 		#{@user.username} lost their Twitter virginity #{distance_of_time_in_words(@user.created_at, DateTime.now, true)} 
-		ago and their very first tweet was "#{@user.first_tweet}."
+		ago.
 		%br
 		%br
 		
@@ -74,8 +75,9 @@
 				followers,
 			-else
 				follower, 
-			and their latest tweet was "#{@user.latest_tweet}" 
-			#{@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")}.
+		and has set their Twitter account to be private, 
+		so TweetVirgin can't access any of their tweets.
+		%br
 .clear
 %br
 %br

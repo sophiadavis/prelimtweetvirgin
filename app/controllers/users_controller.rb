@@ -12,8 +12,13 @@ class UsersController < ApplicationController
 		
 		count = @user.num_tweets
 		
+		
 		if count > 3200
 			@user.over3200 = true
+			if @user.protected
+				@user.save
+				return
+			end
 			@user.latest_tweet = Twitter.user(@user.username).status.text
 			@user.timeoflasttweet = Twitter.user(@user.username).status.created_at
 			@user.save
@@ -21,6 +26,10 @@ class UsersController < ApplicationController
 			return
 		else
 			@user.over3200 = false
+			if @user.protected
+				@user.save
+				return
+			end
 			@user.first_tweet = User.get_first_tweet @user.username
 			@user.latest_tweet = Twitter.user(@user.username).status.text
 			@user.timeoflasttweet = Twitter.user(@user.username).status.created_at
@@ -30,10 +39,14 @@ class UsersController < ApplicationController
 	
 	def show
 		if params[:username].strip == ""
-			#render :js => "alert('hello')"  # why didn't this work?s
+			#render :js => "alert('hello')"  # why didn't this work?
 			render :incomplete
 		elsif @user
-			render :show
+			if @user.protected
+				render :protected_user
+			else
+				render :show
+			end
 		else
 			render :user_not_found
 		end
