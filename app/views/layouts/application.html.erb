@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TweetVirgin</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>TweetVirgin</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	  <meta charset="utf-8">
+	</head>
+	<body>
+	<div id="content">
+		
+		<div id="header">
+			TweetVirgin.com
+		</div>
+		
+		<div id="sidebar">
+			<div class="title">
+			When did YOU loose <br> Twitter virginity?
+			</div>
+			<br><br>
+			<div class="image">
+			<img src="<%=Twitter.user('virginmary').profile_image_url_https( size = :bigger )%>" width="120" height="120" >
+			</div>
+			virginmary<br>
+			lost Twitter virginity <%=distance_of_time_in_words(Twitter.user('virginmary').created_at, DateTime.now, true)%> ago.
+			<br><br>
+			<div class="image">
+			<img src="<%=Twitter.user('barackobama').profile_image_url_https( size = :bigger )%>" width="120" height="120" >
+			</div>
+			barackobama<br>
+			lost Twitter virginity <%=distance_of_time_in_words(Twitter.user('barackobama').created_at, DateTime.now, true)%> ago.
+			<br><br>
+			<div class="image">
+			<img src="<%=Twitter.user('xanderrosboro').profile_image_url_https( size = :bigger )%>" width="120" height="120" >
+			</div>
+			xanderrosboro<br>
+			lost Twitter virginity <%=distance_of_time_in_words(Twitter.user('xanderrosboro').created_at, DateTime.now, true)%> ago.
+			<br>	
+		</div>
+		
+		<div id="main">
+			<%= yield %>
+		</div>
+		
+		<div class="clear">
+		</div>
+		
+	</div>
+	
+	
 
-<%= yield %>
-
-</body>
+	</body>
 </html>

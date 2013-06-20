@@ -1,17 +1,6 @@
 class User < ActiveRecord::Base
 	attr_accessible :created_at, :first_tweet, :latest_tweet, :num_followers, :num_friends, :num_tweets, :profile_link, :user_id, :username, :timeoflasttweet, :over3200
 
-def check_supplier_exists
-  @supplier = Supplier.find(self.supplier_id)
-  if @supplier != nil
-    return true
-  else 
-    return false
-  end
-end
-
-
-	
 	#A method to grab user info from Twitter
 	def self.get_user_info username
 		
@@ -19,16 +8,16 @@ end
 	
 		User.create!({
 			:created_at => user.created_at,
-			:first_tweet => User.get_first_tweet(user),
-			:latest_tweet => user.status.text,
+			:first_tweet => 'no first tweet!',
+			:latest_tweet =>  'no tweets!',
 			:num_followers => user.followers_count,
 			:num_friends => user.friends_count,
 			:num_tweets => user.statuses_count,
 			:profile_link => user.profile_image_url_https( size = :bigger ),
 			:user_id => user.id,
 			:username => username,
-			:timeoflasttweet => user.status.created_at,
-			:over3200 => true,
+			:timeoflasttweet => nil,
+			:over3200 => false,
 		})
 		
 	end
@@ -42,19 +31,16 @@ end
 		id_checker = 0
 		
 		while id_checker != id do
-			
 			timeline = Twitter.user_timeline(username, :count => 200, :max_id => id)
 			id_checker = id
 			id = timeline.last.id
-		
 		end
 		
 		# puts id
 		# puts timeline.last.created_at
 		return timeline.last.text
-	
 	end
-	
+=begin	
 	def self.get_tweet_score
 	
 		tweet_score = 0
@@ -69,4 +55,5 @@ end
 			id = timeline.last.id
 		end
 	end
+=end
 end
