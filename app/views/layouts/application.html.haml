@@ -1,0 +1,42 @@
+!!!
+%html
+	%body
+		%head
+			%title TweetVirgin
+			= stylesheet_link_tag    "application", :media => "all"
+			= javascript_include_tag "application"
+			= csrf_meta_tags
+			%link{:href => 'http://fonts.googleapis.com/css?family=Merienda', :rel => 'stylesheet', :type => 'text/css'}/
+			%link{:href=> 'http://fonts.googleapis.com/css?family=Sofia', :rel=> 'stylesheet', :type=> 'text/css'}/
+			%meta{:charset => "utf-8"}/
+		#content
+			#header TweetVirgin.com
+			#sidebar
+				.title 
+					When did YOU loose 
+					%br 
+					Twitter virginity?
+					%br
+					%br
+				.image
+					%img{:height => "120", :src => Twitter.user('virginmary').profile_image_url_https( size = :bigger ), :width => "120"}/
+				virginmary
+				%br
+				lost Twitter virginity #{distance_of_time_in_words(Twitter.user('virginmary').created_at, DateTime.now, true)} ago.
+				%br
+				%br
+				.image
+					%img{:height => "120", :src => Twitter.user('barackobama').profile_image_url_https( size = :bigger ), :width => "120"}/
+				barackobama
+				%br
+				lost Twitter virginity #{distance_of_time_in_words(Twitter.user('barackobama').created_at, DateTime.now, true)} ago.
+				%br
+				%br
+				.image
+					%img{:height => "120", :src => Twitter.user('barackobama').profile_image_url_https( size = :bigger ), :width => "120"}/
+				xanderrosboro
+				%br
+				lost Twitter virginity #{distance_of_time_in_words(Twitter.user('xanderrosboro').created_at, DateTime.now, true)} ago.
+			#main
+				=yield
+			.clear

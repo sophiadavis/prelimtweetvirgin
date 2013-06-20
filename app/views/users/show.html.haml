@@ -1,0 +1,83 @@
+#profile
+	.title= params[:username]
+	%br
+	%img{:height => "120", :src => @user.profile_link, :width => "120"}/
+
+#info 
+	-if @user.over3200 == true
+		Woah! Since they lost their Twitter virginity #{distance_of_time_in_words(@user.created_at, DateTime.now, true)} 
+		ago, #{@user.username} has tweeted #{@user.num_tweets} times! 
+		It's pretty hard to figure out what the first tweet was for a Twitter 
+		user who's that active...
+		%br
+		%br
+		Today, #{@user.username} has #{@user.num_followers}
+		-if @user.num_followers != 1
+			followers,
+		-else 
+			follower,
+		has followed #{@user.num_friends} other 
+		-if @user.num_friends != 1
+			users,
+		-else
+			user,
+		and their latest tweet was "#{@user.latest_tweet}" #{@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")}.
+
+	-elsif @user.num_tweets == 0
+		#{@user.username} lost their Twitter virginity #{distance_of_time_in_words(@user.created_at, DateTime.now, true)} ago.
+		%br
+		%br
+		Today, #{@user.username} has #{@user.num_followers} 
+		-if @user.num_followers != 1
+			followers,
+		-else
+			follower,
+		has followed #{@user.num_friends} other 
+		-if @user.num_friends != 1
+			users,
+		-else
+			user,
+		and has tweeted a grand total of 0 times! 
+		%br
+		%br
+		Get tweeting!
+		
+	-else
+		#{@user.username} lost their Twitter virginity #{distance_of_time_in_words(@user.created_at, DateTime.now, true)} 
+		ago and their very first tweet was "#{@user.first_tweet}."
+		%br
+		%br
+		
+		<!--if all tweets can be found, display different messages depending on number-->
+		-if @user.num_tweets == 1
+			Since then, #{@user.username} hasn't tweeted at all! They've followed 
+			#{@user.num_friends} other 
+			-if @user.num_friends != 1
+				users
+			-else
+				user
+			and have #{@user.num_followers} 
+			-if @user.num_followers != 1
+				followers.
+			-else
+				follower.
+
+		-else
+			Since then, #{@user.username} has tweeted #{@user.num_tweets} times and has followed
+			#{@user.num_friends} other 
+			-if @user.num_friends != 1
+				users.
+			-else
+				user. 
+			#{@user.username} has #{@user.num_followers} 
+			-if @user.num_followers != 1
+				followers,
+			-else
+				follower, 
+			and their latest tweet was "#{@user.latest_tweet}" 
+			#{@user.timeoflasttweet.strftime("at %I:%M:%S %p on %A, %B %d, %Y (%Z)")}.
+.clear
+%br
+%br
+<!--display form from home page-->
+=render "request"

@@ -21,3 +21,7 @@ gem 'debugger'
 gem 'rack-rewrite'
 
 gem 'dotiw', '~> 1.1.1'
+
+gem 'sass'
+
+gem "haml", "~> 4.0.3"
