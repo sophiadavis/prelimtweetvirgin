@@ -1,10 +1,12 @@
 !!!
 %html
 	%body
+		-# {:onload => "getClock()"} didn't need that?
 		%head
 			%title TweetVirgin
 			= stylesheet_link_tag    "application", :media => "all"
 			= javascript_include_tag "application"
+			= javascript_include_tag 'home'
 			= csrf_meta_tags
 			%link{:href => 'http://fonts.googleapis.com/css?family=Merienda', :rel => 'stylesheet', :type => 'text/css'}/
 			%link{:href=> 'http://fonts.googleapis.com/css?family=Sofia', :rel=> 'stylesheet', :type=> 'text/css'}/
@@ -39,4 +41,8 @@
 				lost Twitter virginity #{distance_of_time_in_words(Twitter.user('xanderrosboro').created_at, DateTime.now, true)} ago.
 			#main
 				=yield
+			.clear
+			#footer
+				:javascript
+					getClock()
 			.clear
