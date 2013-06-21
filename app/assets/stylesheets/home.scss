@@ -1,58 +1,67 @@
 /*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
+home.scss
 */
 
-$darkblue: #FFB579;
+/* background colors */
 $teal: #2BA0B2;
-$wide: 960px;
+$ltblue: #83D6FF;
+$aqua: #81EDFF;
 
+/* font colors */
+$peach: #FFB579;
+$orange: #FF7B0F;
+$yellow: #FFE28A;
+$darkbrown: #5A4B30;
+
+$wide: 960px;
+$marg: 15px 5px;
 
 body	{
-	color: $darkblue;
+	color: $peach;
 	background: $teal;
 	font-family: Courier, monospace;
 	font-size: 15px;
+	line-height: 18px;	
 	padding: 10px;
-	line-height: 18px;
 	#content	{
-		width: 960px;
-		padding: 10px;
-		margin: 10px 5px;
-		background: #81EDFF;
-		margin: 15px auto;
+		width: $wide;
+		background: $aqua;
+		margin: $marg;
 		#header	{
-			color: #FF7B0F;
-			background: #9AF1FF;
-			width: 960px;
+			color: $orange;
+			background: $ltblue;
 			float: left;
 			font-weight: bold;
 			height: 20px;
-			margin: 0px;
+			padding-left: 10px 0 0 0;
+			width: $wide; 
 		}
 		#main	{
+			color: $darkbrown;
 			padding: 30px 20px;
-			width: 600px;
-			height: 400px;
 			float: left;
-			color: #5A4B30;
+			width: 2*$wide/3+25px;
+			height: 400px;
+			padding: 0 5px;
+			-webkit-border-image: url(http://www.w3.org/TR/css3-background/border.png) 30 30 stretch; /* Safari 5 */
+			-o-border-image: url(http://www.w3.org/TR/css3-background/border.png) 30 30 stretch; /* Opera */
+			border-image: url(http://www.w3.org/TR/css3-background/border.png) 30 30 stretch;
+			margin-top: 10px;
 			#profile	{
 				width: 120px;
 				float: left;
 				font-size: 20px;
-				margin: 20px 0px;
 			}
 			#info	{
-				width: 450px;
+				width: 2*$wide/3-120px-40px;
 				float: right;
-				margin: 20px 0px;
 				font-family: 'Merienda', cursive;
 			}
 		}
 		#sidebar	{
 			background: $teal;
-			color: #FFE28A;
-			width: 250px;
+			color: $yellow;
+			width: $wide/3-60px;
 			float: right;
 			padding: 12px;
 		}
@@ -64,9 +73,8 @@ body	{
 		clear: both;
 	}
 
-	.title	{
+	h1	{
 		text-align: center;
-		/*font-weight: bold;*/
 		font-size: 18px;
 	}
 } 

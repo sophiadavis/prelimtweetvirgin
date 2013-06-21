@@ -1,9 +1,11 @@
 #profile
-	.title= @user.username
+	%h1= @user.username
 	%br
 	%img{:height => "120", :src => @user.profile_link, :width => "120"}/
 
-#info 
+%p#info 
+	%br
+	%br
 	-if @user.over3200 == true
 		Woah! Since they lost their Twitter virginity #{distance_of_time_in_words(@user.created_at, DateTime.now, true)} 
 		ago, #{@user.username} has tweeted #{@user.num_tweets} times! 
@@ -78,6 +80,8 @@
 		and has set their Twitter account to be private, 
 		so TweetVirgin can't access any of their tweets.
 		%br
+	%br
+	%br
 .clear
 %br
 %br
