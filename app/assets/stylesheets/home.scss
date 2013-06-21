@@ -24,7 +24,7 @@ body	{
 	line-height: 18px;	
 	padding: 10px;
 	#content	{
-		width: $wide;
+		width: 960px;
 		background: $aqua;
 		margin: $marg;
 		#header	{
@@ -40,7 +40,7 @@ body	{
 			color: $darkbrown;
 			padding: 30px 20px;
 			float: left;
-			width: 2*$wide/3+25px;
+			width: 665px;
 			height: 400px;
 			padding: 0 5px;
 			-webkit-border-image: url(http://www.w3.org/TR/css3-background/border.png) 30 30 stretch; /* Safari 5 */
@@ -53,7 +53,7 @@ body	{
 				font-size: 20px;
 			}
 			#info	{
-				width: 2*$wide/3-120px-40px;
+				width: 505px;
 				float: right;
 				font-family: 'Merienda', cursive;
 			}
@@ -61,7 +61,7 @@ body	{
 		#sidebar	{
 			background: $teal;
 			color: $yellow;
-			width: $wide/3-60px;
+			width: 460px;
 			float: right;
 			padding: 12px;
 		}
