@@ -36,12 +36,10 @@ class User < ActiveRecord::Base
 			id_checker = id
 			id = timeline.last.id
 		end
-		
-		# puts id
-		# puts timeline.last.created_at
 		return timeline.last.text
 	end
-=begin	
+=begin	Eventually, I was going to add a twitter-score calculator! but that will take a lot
+of research...
 	def self.get_tweet_score
 	
 		tweet_score = 0

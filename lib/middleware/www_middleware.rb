@@ -1,3 +1,6 @@
+# I wanted to use rack middleware to get tweetvirgin.com to redirect to www.tweetvirgin.com
+# but I never got it working.
+
 class WwwMiddleware
 	
 	def initialize(app)
