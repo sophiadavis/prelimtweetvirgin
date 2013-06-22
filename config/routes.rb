@@ -1,6 +1,4 @@
 Tweetvirgin1::Application.routes.draw do
-	
-	#get "users/show"
 
 	get "home/index"
 

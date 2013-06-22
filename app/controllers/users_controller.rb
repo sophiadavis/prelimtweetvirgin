@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+	
+	#respond_to :html, :xml, :json
 	before_filter :get_user
 	
 	def get_user
@@ -11,8 +12,6 @@ class UsersController < ApplicationController
 		end
 		
 		count = @user.num_tweets
-		
-		
 		if count > 3200
 			@user.over3200 = true
 			if @user.protected
@@ -38,6 +37,7 @@ class UsersController < ApplicationController
 	end
 	
 	def show
+		#respond_with(@user)		
 		if params[:username].strip == ""
 			#render :js => "alert('hello')"  # why didn't this work?
 			render :incomplete
@@ -51,4 +51,5 @@ class UsersController < ApplicationController
 			render :user_not_found
 		end
 	end
+
 end

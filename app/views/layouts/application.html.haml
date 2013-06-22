@@ -39,14 +39,10 @@
 				%br
 				lost Twitter virginity #{distance_of_time_in_words(Twitter.user('xanderrosboro').created_at, DateTime.now, true)} ago.
 			#main
-				:javascript
-					Spinner.getSpinner("20px", 6, "red");
 				=yield
 			.clear
 			#footer
-				:javascript
-					getClock()
 			.clear
 			#bird
-				= link_to image_tag("blue-bird.png"), "http://www.twitter.com"
-				Sophia Davis, last updated #{DateTime.now.strftime("at %I:%M:%S %p on %A, %B %d, %Y")}
+				= link_to image_tag("blue-bird.png", :width => 40, :height => 40), "http://www.twitter.com"
+		#signature Sophia Davis

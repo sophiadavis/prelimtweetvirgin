@@ -25,12 +25,12 @@ $marg: 15px auto;
 }
 @-webkit-keyframes slidein	{
 	from	{
-		margin-left: 0%;
-		width: 300%;
+		margin-left: 0;
+		/*width: 100%;*/
 	}
 	to	{
-		margin-left: 100%;
-		width: 100%;
+		margin-left: 897px;
+		/*width: 100%;*/
 	}
 }
 
@@ -59,9 +59,7 @@ body	{
 			height: 400px;
 			padding: 0 5px;
 			margin: 0 10px;
-			-webkit-border-image: url(http://www.w3.org/TR/css3-background/border.png) 30 30 stretch; /* Safari 5 */
-			-o-border-image: url(http://www.w3.org/TR/css3-background/border.png) 30 30 stretch; /* Opera */
-			border-image: url(http://www.w3.org/TR/css3-background/border.png) 30 30 stretch;
+			-webkit-border-image: "border.png" 30 30 stretch; /* Safari 5 */
 			margin-top: 10px;
 			#profile	{
 				width: 120px;
@@ -85,6 +83,7 @@ body	{
 		}
 		#footer	{
 			@include topnbottom;
+			height: 20px;
 			position: absolute;
 			bottom: 0;
 			text-align: right;
@@ -95,16 +94,26 @@ body	{
 	}
 	#bird	{
 			-webkit-animation-name: slidein;
-			-webkit-animation-duration: 5s;
+			-webkit-animation-duration: 8s;
 			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-direction: alternate;
 			@include topnbottom;
 			color: $yellow;
-			/*position: absolute;*/
-			bottom: 20px;
-			height: 40px;
+			position: absolute;
+			bottom: 41px;
 			background: transparent;
+			
 		}
-
+	#signature	{
+		@include topnbottom;
+		color: $yellow;
+		background: transparent;
+		bottom: 0;
+		text-align: right;
+		float: right;
+		padding-right: 10px;
+		
+	}
 	.image	{
 		text-align: center;
 		height: 120px;
