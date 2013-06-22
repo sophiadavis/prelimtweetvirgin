@@ -25,3 +25,5 @@ gem 'dotiw', '~> 1.1.1'
 gem 'sass'
 
 gem "haml", "~> 4.0.3"
+
+gem "jquery-rails"

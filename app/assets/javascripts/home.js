@@ -1,5 +1,6 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
 function getClock() {
 	var today = new Date();
 	var wkday = dayToWord(today.getDay());
@@ -10,11 +11,13 @@ function getClock() {
 	var meridian = (hour > 12) ? "PM" : "AM";
 	var min = today.getMinutes();
 	var sec = today.getSeconds();
+
 // add a zero in front of numbers<10
 	min=checkTime(min);
 	sec=checkTime(sec);
 	hour = twelvehr(today.getHours());
-	document.getElementById('footer').innerHTML = "Today is " + wkday + ", " + month + " " + day + ", " + year + " at " + hour + ":" + min + ":" + sec + " " + meridian + ".";
+	$("#footer").html("Today is " + wkday + ", " + month + " " + day + ", " + year + " at " + hour + ":" + min + ":" + sec + " " + meridian + ".");
+	
 	t=setTimeout(function(){getClock()},500);
 }
 
