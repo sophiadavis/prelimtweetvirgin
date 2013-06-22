@@ -1,7 +1,8 @@
 #profile
 	%h1= @user.username
 	%br
-	%img{:height => "120", :src => @user.profile_link, :width => "120"}/
+	.image
+		%img{:height => 120, :width => 120, :src => @user.profile_link}/
 
 %p#info 
 	%br

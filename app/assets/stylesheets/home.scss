@@ -23,6 +23,16 @@ $marg: 15px auto;
 	padding-left: 10px;
 	width: 950px;
 }
+@-webkit-keyframes slidein	{
+	from	{
+		margin-left: 0%;
+		width: 300%;
+	}
+	to	{
+		margin-left: 100%;
+		width: 100%;
+	}
+}
 
 body	{
 	color: $peach;
@@ -83,8 +93,22 @@ body	{
 			padding-left: 0;
 		}
 	}
+	#bird	{
+			-webkit-animation-name: slidein;
+			-webkit-animation-duration: 5s;
+			-webkit-animation-iteration-count: infinite;
+			@include topnbottom;
+			color: $yellow;
+			/*position: absolute;*/
+			bottom: 20px;
+			height: 40px;
+			background: transparent;
+		}
+
 	.image	{
 		text-align: center;
+		height: 120px;
+		width: 120px;
 	}
 	.clear	{
 		clear: both;
