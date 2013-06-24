@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	attr_accessible :created_at, :first_tweet, :latest_tweet, :num_followers, :num_friends, :num_tweets, :profile_link, :user_id, :username, :timeoflasttweet, :over3200, :protected
 
-	#A method to grab user info from Twitter
+	# grab user info from Twitter
 	def self.get_user_info username
 		
 		user = Twitter.user(username)
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 		
 	end
 
-	# return the 'first tweet' (3,200 back) of a user
+	# return the first tweet of a user (API can only access a user's last 3200 tweets)
 	def self.get_first_tweet username
 	
 		timeline = Twitter.user_timeline(username, :count => 200)
@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
 		end
 		return timeline.last.text
 	end
+
 =begin	Eventually, I was going to add a twitter-score calculator! but that will take a lot
 of research...
 	def self.get_tweet_score
@@ -55,4 +56,5 @@ of research...
 		end
 	end
 =end
+
 end

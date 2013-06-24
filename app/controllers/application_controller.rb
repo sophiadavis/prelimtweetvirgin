@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
+
+# these are all my attempts to get tweetvirgin.com to redirect to www.tweetvirgin.com
+# eventually Jeff just went to GoDaddy and set tweetvirgin.com to redirect to www...
+# is there a way to do this from inside the code?
+
 =begin	
-	# from Joe
+	# this was Joe's suggestion
 	before_filter :ensure_domain
 	
 	def ensure_domain
@@ -12,17 +17,21 @@ class ApplicationController < ActionController::Base
 			redirect_to request.protocol + canonical_domain + request.fullpath
 		end
 	end
+I also tried the following instead of .fullpath:
+	request_uri
+	request_url
+	request.fullpath
 	
-#	before_filter :check_uri
+	before_filter :check_uri
 
 	def check_uri
 		redirect_to request.protocol + "www." + request.host_with_port + request.fullpath if !/^www/.match(request.host) if Rails.env =='production'
 	end
-=end
+
 	
 	
 	#redirect_to "http://www.tweetvirgin.com"
-=begin
+
 before_filter :force_www!
 	
 	protected
@@ -32,9 +41,7 @@ before_filter :force_www!
 			redirect_to request.protocol + 'www.tweetvirgin.com' + request.fullpath, :status => 301
 		end
 	end
-=end
 
-=begin
 
 
 	APP_DOMAIN = 'www.tweetvirgin.com'
@@ -57,10 +64,3 @@ before_filter :force_www!
 
 =end
 end
-# request_uri
-# request_url
-# request.fullpath
-
-
-#</br> </br>
-#<%= request.inspect %>

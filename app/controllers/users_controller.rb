@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 	
-	#respond_to :html, :xml, :json
 	before_filter :get_user
 	
 	def get_user
 		begin
+			# get info about user from Twitter
 			@user = User.get_user_info params[:username]
 		rescue
+			# don't crash if the username isn't registered on Twitter
 			@user = nil
 			return
 		end
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
 			@user.over3200 = true
 			if @user.protected
 				@user.save
-				return
+				return # can't access any tweet data for protected users
 			end
 			@user.latest_tweet = Twitter.user(@user.username).status.text
 			@user.timeoflasttweet = Twitter.user(@user.username).status.created_at
@@ -36,8 +37,7 @@ class UsersController < ApplicationController
 		end
 	end
 	
-	def show
-		#respond_with(@user)		
+	def show		
 		if params[:username].strip == ""
 			#render :js => "alert('hello')"  # why didn't this work?
 			render :incomplete
@@ -51,5 +51,4 @@ class UsersController < ApplicationController
 			render :user_not_found
 		end
 	end
-
 end

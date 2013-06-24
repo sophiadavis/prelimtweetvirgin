@@ -52,7 +52,7 @@
 		%br
 		%br
 		
-		<!--if all tweets can be found, display different messages depending on number-->
+		-# if all tweets can be found, display different messages depending on number
 		-if @user.num_tweets == 1
 			Since then, #{@user.username} hasn't tweeted at all! They've followed 
 			#{@user.num_friends} other 
@@ -86,5 +86,6 @@
 .clear
 %br
 %br
-<!--display form from home page-->
+
+-#display form from home page
 =render "request"
