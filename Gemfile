@@ -16,8 +16,6 @@ gem 'uglifier'
 
 gem 'taps'
 
-gem 'debugger'
-
 gem 'rack-rewrite'
 
 gem 'dotiw', '~> 1.1.1'
@@ -29,3 +27,8 @@ gem "haml", "~> 4.0.3"
 gem "jquery-rails"
 
 gem "thin"
+
+group :development do
+  gem 'debugger'
+end
+
